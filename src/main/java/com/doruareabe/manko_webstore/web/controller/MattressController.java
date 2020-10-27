@@ -67,7 +67,7 @@ public class MattressController {
         mattress.setImg(mattressFromDB.getImg());
         Mattress mattressWrited = mattressService.save(mattress);
         if(!img.isEmpty()){
-            Path path = Paths.get("src/main/resources/static/img/"+mattressWrited.getId()+".png");
+            Path path = Paths.get("target/classes/static/img/"+mattressWrited.getId()+".png");
             try {
                 byte[] bytes = img.getBytes();
                 Files.write(path,bytes);
@@ -91,7 +91,7 @@ public class MattressController {
             return "AdminPart/views/mattress/add";
         }
         Mattress mattressWrited = mattressService.save(mattress);
-        Path path = Paths.get("src/main/resources/static/img/"+mattressWrited.getId()+".png");
+        Path path = Paths.get("target/classes/static/img/"+mattressWrited.getId()+".png");
         try {
             byte[] bytes = img.getBytes();
             Files.write(path,bytes);
