@@ -34,6 +34,13 @@ public class ExtraComponentService implements ExtraComponentServiceInterface {
 
     @Override
     public ExtraComponent save(ExtraComponent variable) {
+        ExtraComponent exist = findExtraComponentByExtraComponent(variable.getExtraComponent());
+        if(exist!=null) return null;
         return extraComponentRepository.save(variable);
+    }
+
+    @Override
+    public ExtraComponent findExtraComponentByExtraComponent(String component) {
+        return extraComponentRepository.findExtraComponentByExtraComponent(component);
     }
 }

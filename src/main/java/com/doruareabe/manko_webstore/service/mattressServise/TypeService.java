@@ -34,6 +34,13 @@ public class TypeService implements TypeServiceInterface {
 
     @Override
     public Type save(Type variable) {
+        Type exist = findTypeByType(variable.getTyp());
+        if(exist!=null) return null;
         return typeRepository.save(variable);
+    }
+
+    @Override
+    public Type findTypeByType(String type) {
+        return typeRepository.findTypeByTyp(type);
     }
 }

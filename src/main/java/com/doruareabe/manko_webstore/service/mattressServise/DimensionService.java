@@ -32,6 +32,13 @@ public class DimensionService implements DimensionServiceInterface{
 
     @Override
     public Dimension save(Dimension variable) {
+        Dimension exist = findDimensionByDimension(variable.getDimension());
+        if(exist!=null) return null;
         return dimensionsRepository.save(variable);
+    }
+
+    @Override
+    public Dimension findDimensionByDimension(String dimension) {
+        return dimensionsRepository.findDimensionByDimension(dimension);
     }
 }

@@ -34,6 +34,13 @@ public class CoverService implements CoverServiceInterface {
 
     @Override
     public Cover save(Cover variable) {
+        Cover exist = findCoverByCover(variable.getCovr());
+        if(exist!=null) return null;
         return coverRepository.save(variable);
+    }
+
+    @Override
+    public Cover findCoverByCover(String cover) {
+        return coverRepository.findCoverByCovr(cover);
     }
 }

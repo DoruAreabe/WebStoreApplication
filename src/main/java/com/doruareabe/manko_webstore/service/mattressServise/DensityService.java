@@ -34,6 +34,13 @@ public class DensityService implements DensityServiceInterface {
 
     @Override
     public Density save(Density variable) {
+        Density exist = findDensityByDensity(variable.getDensit());
+        if(exist!=null) return null;
         return densityRepository.save(variable);
+    }
+
+    @Override
+    public Density findDensityByDensity(String density) {
+        return densityRepository.findDensityByDensit(density);
     }
 }
