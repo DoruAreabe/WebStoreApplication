@@ -36,6 +36,7 @@ public class ExtraComponentService implements ExtraComponentServiceInterface {
     public ExtraComponent save(ExtraComponent variable) {
         ExtraComponent exist = findExtraComponentByExtraComponent(variable.getExtraComponent());
         if(exist!=null) return null;
+        variable.setExtraComponent(variable.getExtraComponent().replaceAll("\\s+",""));
         return extraComponentRepository.save(variable);
     }
 

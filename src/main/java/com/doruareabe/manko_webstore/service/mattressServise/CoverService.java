@@ -36,6 +36,7 @@ public class CoverService implements CoverServiceInterface {
     public Cover save(Cover variable) {
         Cover exist = findCoverByCover(variable.getCovr());
         if(exist!=null) return null;
+        variable.setCovr(variable.getCovr().replaceAll("\\s+",""));
         return coverRepository.save(variable);
     }
 

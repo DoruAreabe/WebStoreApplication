@@ -34,6 +34,7 @@ public class DimensionService implements DimensionServiceInterface{
     public Dimension save(Dimension variable) {
         Dimension exist = findDimensionByDimension(variable.getDimension());
         if(exist!=null) return null;
+        variable.setDimension(variable.getDimension().trim());
         return dimensionsRepository.save(variable);
     }
 

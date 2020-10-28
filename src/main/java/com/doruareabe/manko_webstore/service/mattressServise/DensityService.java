@@ -36,6 +36,7 @@ public class DensityService implements DensityServiceInterface {
     public Density save(Density variable) {
         Density exist = findDensityByDensity(variable.getDensit());
         if(exist!=null) return null;
+        variable.setDensit(variable.getDensit().replaceAll("\\s+",""));
         return densityRepository.save(variable);
     }
 

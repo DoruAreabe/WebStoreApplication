@@ -36,6 +36,7 @@ public class TypeService implements TypeServiceInterface {
     public Type save(Type variable) {
         Type exist = findTypeByType(variable.getTyp());
         if(exist!=null) return null;
+        variable.setTyp(variable.getTyp().replaceAll("\\s+",""));
         return typeRepository.save(variable);
     }
 
